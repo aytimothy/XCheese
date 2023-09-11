@@ -1,0 +1,115 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>XCheese</AssemblyName>
+    <Product>XCheese</Product>
+    <Version>1.0.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <RestoreAdditionalProjectSources>
+      https://api.nuget.org/v3/index.json;
+      https://nuget.bepinex.dev/v3/index.json;
+      https://nuget.samboy.dev/v3/index.json
+    </RestoreAdditionalProjectSources>
+    <RootNamespace>XCheese</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.649" IncludeAssets="compile" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <mmxd_game_path Condition="'$(mmxd_game_path)'==''">C:\Program Files (x86)\Steam\steamapps\common\MEGA_MAN_X_DiVE_Offline</mmxd_game_path>
+  </PropertyGroup>
+
+  <!-- Remove this element if you do not want DLLs to be copied to \BepInEx\plugins folder after building -->
+  <Target Name="CopyDLLs" AfterTargets="Build">
+    <Copy SourceFiles="$(TargetDir)$(ProjectName).dll;$(TargetDir)$(ProjectName).pdb" DestinationFolder="$(mmxd_game_path)\BepInEx\plugins\$(AssemblyName)" />
+  </Target>
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="ACTk.Runtime">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\ACTk.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="CapCommon">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\CapCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="Coffee.SoftMaskForUGUI">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\Coffee.SoftMaskForUGUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Coffee.UIParticle">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\Coffee.UIParticle.dll</HintPath>
+    </Reference>
+    <Reference Include="ConsoleService">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\ConsoleService.dll</HintPath>
+    </Reference>
+    <Reference Include="CriMw.CriWare.Runtime">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\CriMw.CriWare.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="DataProvider">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\DataProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Facepunch.Steamworks.Win64">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\Facepunch.Steamworks.Win64.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonFx.Json">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\JsonFx.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="LZ4">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="NaughtyAttributes.Core">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\NaughtyAttributes.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PathCreator">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\PathCreator.dll</HintPath>
+    </Reference>
+    <Reference Include="ProtocolWeb">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\ProtocolWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2Cppmscorlib">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\Il2Cppmscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\Il2CppSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Core">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\Il2CppSystem.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2CppSystem.Xml">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\Il2CppSystem.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>$(mmxd_game_path)\BepInEx\interop\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
