@@ -3,13 +3,9 @@ using BepInEx;
 using BepInEx.Unity.IL2CPP;
 using BepInEx.Unity.IL2CPP.UnityEngine;
 using Il2CppInterop.Runtime.Injection;
-using Il2CppSystem.Collections;
 using StageLib;
 using UnityEngine;
 using KeyCode = BepInEx.Unity.IL2CPP.UnityEngine.KeyCode;
-using Object = UnityEngine.Object;
-using IEnumerator = System.Collections.IEnumerator;
-using IEnumerable = System.Collections.IEnumerable;
 
 namespace XCheese;
 
