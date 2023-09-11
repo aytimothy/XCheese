@@ -8,8 +8,6 @@ This is moreorless a "Hello World" I wrote.
 ## Known Bugs
 
 * Hard lock if you try to show the reward UI before the stage has begun (the "Ready, Go!" sequence has finished playing).
- 
-Won't be bothered fixing any of them; wait for @darkhunter_'s release on the Discord.
 
 ## Building
 
